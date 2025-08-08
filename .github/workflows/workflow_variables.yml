@@ -3,7 +3,7 @@ name: Sample Workflow
 on:
   workflow_dispatch
 
-variables:
+env:
   cloud: google-cloud
 
 jobs:
@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo cloud variable
-        run: echo "The cloud variable is: ${{ vars.cloud }}"
+        run: echo "The cloud variable is: $cloud"
