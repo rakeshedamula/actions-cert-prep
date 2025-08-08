@@ -1,0 +1,23 @@
+name: Testing Context Variable
+
+on:
+  workflow_dispatch
+
+env:
+  cloud: google-cloud
+
+jobs:
+  sample_job:
+    runs-on: ubuntu-latest
+    env:
+      greeting: Hello
+    steps:
+      - name: Checking contect variable
+        env:
+          first_name: Coder
+        run: | 
+          echo "$greeting $first_name, the cloud variable is $cloud with project ${{ vars.PROJECT_ID }}"
+          echo "Repository Name: ${{ github.repository }}"
+          echo "Workflow Name: ${{ github.workflow }}"
+          echo "Triggered by: ${{ github.triggering_actor }}"
+          
